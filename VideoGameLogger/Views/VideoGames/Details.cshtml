@@ -1,0 +1,66 @@
+﻿@model VideoGameLogger.Models.VideoGame
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VideoGame</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfCharacter.CharacterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameOfCharacter.CharacterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfFightingGame)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameOfFightingGame)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WinOrLose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WinOrLose)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfRounds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfRounds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HowLongMinutes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HowLongMinutes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecordTimeMinutes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecordTimeMinutes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VideoGameID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

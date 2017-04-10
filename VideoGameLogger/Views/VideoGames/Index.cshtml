@@ -1,0 +1,63 @@
+﻿@model IEnumerable<VideoGameLogger.Models.VideoGame>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameOfCharacter.CharacterName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameOfFightingGame)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WinOrLose)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfRounds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HowLongMinutes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecordTimeMinutes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameOfCharacter.CharacterName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameOfFightingGame)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WinOrLose)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfRounds)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HowLongMinutes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecordTimeMinutes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VideoGameID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VideoGameID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VideoGameID })
+        </td>
+    </tr>
+}
+
+</table>

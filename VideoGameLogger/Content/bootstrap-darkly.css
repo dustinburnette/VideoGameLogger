@@ -4593,8 +4593,9 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #cccccc;
 }
 .navbar-inverse {
-  background-color: #00bc8c;
-  border-color: transparent;
+     background-color: #00ffdc;
+    
+    border-color: transparent;
 }
 .navbar-inverse .navbar-brand {
   color: #ffffff;
@@ -7044,3 +7045,5 @@ a.list-group-item-danger.active:focus {
 .panel-default > .panel-heading {
   background-color: #464545;
 }
+
+

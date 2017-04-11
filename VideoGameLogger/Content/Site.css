@@ -22,3 +22,19 @@ select,
 textarea {
     max-width: 280px;
 }
+.navbar-inverse {
+    background-color: #00c1b7;
+}
+a {
+    color: #00fff2;
+}
+.navbar-brand,ul.navbar-nav {
+    font-weight: bold;
+}
+*, h1 {
+    font-family: 'Ubuntu', sans-serif;
+}
+.gameList {
+    list-style-type: square;
+    font-size: 1.2em;
+}

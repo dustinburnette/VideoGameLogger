@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,6 +9,8 @@ namespace VideoGameLogger.Models
     public class VideoGame
     {
         public int VideoGameID { get; set; }
+        [Required]
+        [Display (Name = "Name of Fighting Game")]
         public string NameOfFightingGame { get; set; }
         public bool WinOrLose { get; set; }
         public int NumberOfRounds { get; set; }

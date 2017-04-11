@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -10,6 +11,7 @@ using VideoGameLogger.Models;
 
 namespace VideoGameLogger.Controllers
 {
+    [Authorize]
     public class VideoGamesController : Controller
     {
         private VideoGameLoggerContext db = new VideoGameLoggerContext();
@@ -17,7 +19,8 @@ namespace VideoGameLogger.Controllers
         // GET: VideoGames
         public ActionResult Index()
         {
-            var videoGames = db.VideoGames.Include(v => v.NameOfCharacter);
+            string userId = User.Identity.GetUserId();
+            var videoGames = db.VideoGames.Where(videoGame => videoGame.CreatedBy == userId).Include(v => v.NameOfCharacter);
             return View(videoGames.ToList());
         }
 
@@ -29,10 +32,11 @@ namespace VideoGameLogger.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             VideoGame videoGame = db.VideoGames.Find(id);
-            if (videoGame == null)
+            if (videoGame == null || videoGame.CreatedBy != User.Identity.GetUserId())
             {
                 return HttpNotFound();
             }
+           
             return View(videoGame);
         }
 
@@ -52,6 +56,7 @@ namespace VideoGameLogger.Controllers
         {
             if (ModelState.IsValid)
             {
+                videoGame.CreatedBy = User.Identity.GetUserId();
                 db.VideoGames.Add(videoGame);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -69,7 +74,7 @@ namespace VideoGameLogger.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             VideoGame videoGame = db.VideoGames.Find(id);
-            if (videoGame == null)
+            if (videoGame == null || videoGame.CreatedBy != User.Identity.GetUserId())
             {
                 return HttpNotFound();
             }
@@ -102,7 +107,7 @@ namespace VideoGameLogger.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             VideoGame videoGame = db.VideoGames.Find(id);
-            if (videoGame == null)
+            if (videoGame == null || videoGame.CreatedBy != User.Identity.GetUserId())
             {
                 return HttpNotFound();
             }

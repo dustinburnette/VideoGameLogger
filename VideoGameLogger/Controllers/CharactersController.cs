@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -10,6 +11,7 @@ using VideoGameLogger.Models;
 
 namespace VideoGameLogger.Controllers
 {
+    [Authorize]
     public class CharactersController : Controller
     {
         private VideoGameLoggerContext db = new VideoGameLoggerContext();
@@ -17,7 +19,9 @@ namespace VideoGameLogger.Controllers
         // GET: Characters
         public ActionResult Index()
         {
-            return View(db.Characters.ToList());
+            string userId = User.Identity.GetUserId();
+            var characters = db.Characters.Where(x => x.CreatedBy == userId);
+            return View(characters.ToList());
         }
 
         // GET: Characters/Details/5
@@ -50,6 +54,7 @@ namespace VideoGameLogger.Controllers
         {
             if (ModelState.IsValid)
             {
+                character.CreatedBy = User.Identity.GetUserId();
                 db.Characters.Add(character);
                 db.SaveChanges();
                 return RedirectToAction("Index");

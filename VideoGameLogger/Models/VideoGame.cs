@@ -25,5 +25,7 @@ namespace VideoGameLogger.Models
         public TimeSpan HowLongMinutes { get; set; }
         [Display(Name = "Record Time in Minutes")]
         public TimeSpan RecordTimeMinutes { get; set; }
+        [MaxLength(50)]
+        public string CreatedBy { get; set; }
     }
 }

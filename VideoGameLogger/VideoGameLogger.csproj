@@ -204,6 +204,14 @@
     <Compile Include="Migrations\201704111456104_NameOFFigthingGameNotNullable.Designer.cs">
       <DependentUpon>201704111456104_NameOFFigthingGameNotNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704112013155_AddedCreatedByToVideoGames.cs" />
+    <Compile Include="Migrations\201704112013155_AddedCreatedByToVideoGames.Designer.cs">
+      <DependentUpon>201704112013155_AddedCreatedByToVideoGames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704112110433_Fixed Login Characters.cs" />
+    <Compile Include="Migrations\201704112110433_Fixed Login Characters.Designer.cs">
+      <DependentUpon>201704112110433_Fixed Login Characters.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Character.cs" />
@@ -307,6 +315,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704111456104_NameOFFigthingGameNotNullable.resx">
       <DependentUpon>201704111456104_NameOFFigthingGameNotNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704112013155_AddedCreatedByToVideoGames.resx">
+      <DependentUpon>201704112013155_AddedCreatedByToVideoGames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704112110433_Fixed Login Characters.resx">
+      <DependentUpon>201704112110433_Fixed Login Characters.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

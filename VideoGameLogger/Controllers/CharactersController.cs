@@ -87,6 +87,12 @@ namespace VideoGameLogger.Controllers
         {
             if (ModelState.IsValid)
             {
+                Character originalCharacter = db.Characters.AsNoTracking().FirstOrDefault(x => x.CharacterID == character.CharacterID);
+                if (originalCharacter == null || originalCharacter.CreatedBy != User.Identity.GetUserId())
+                {
+                    return HttpNotFound();
+                }
+                character.CreatedBy = originalCharacter.CreatedBy;
                 db.Entry(character).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -32,7 +32,7 @@ namespace VideoGameLogger.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Character character = db.Characters.Find(id);
-            if (character == null)
+            if (character == null || character.CreatedBy != User.Identity.GetUserId())
             {
                 return HttpNotFound();
             }
@@ -71,7 +71,7 @@ namespace VideoGameLogger.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Character character = db.Characters.Find(id);
-            if (character == null)
+            if (character == null || character.CreatedBy != User.Identity.GetUserId())
             {
                 return HttpNotFound();
             }
@@ -109,7 +109,7 @@ namespace VideoGameLogger.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Character character = db.Characters.Find(id);
-            if (character == null)
+            if (character == null || character.CreatedBy != User.Identity.GetUserId())
             {
                 return HttpNotFound();
             }

@@ -87,6 +87,7 @@ namespace VideoGameLogger.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 Character originalCharacter = db.Characters.AsNoTracking().FirstOrDefault(x => x.CharacterID == character.CharacterID);
                 if (originalCharacter == null || originalCharacter.CreatedBy != User.Identity.GetUserId())
                 {

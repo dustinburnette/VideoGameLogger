@@ -81,13 +81,31 @@
 
 
 
-    <div class="col-md-4">
+    
+
+
+
+
+@if (Request.IsAuthenticated)
+{
+    <div class="col-md-4" style="width:100%;">
         <h2>Already have names added?</h2>
         <p>
-           Start by adding some Character Names from the game you are logging above. You may add as many or as little as you want! Or if you have Characters already set, start logging your games 
+            Start by adding some Character Names from the game you are logging above. You may add as many or as little as you want! Or if you have Characters already set, start logging your games
         </p>
         <p><a class="btn btn-default" href="/VideoGames">Here</a></p>
     </div>
+}
+else
+{
+    <div class="col-md-4">
+        <h2>Already have names added?</h2>
+        <p>
+            Start by adding some Character Names from the game you are logging above. You may add as many or as little as you want! Or if you have Characters already set, start logging your games
+        </p>
+        <p><a class="btn btn-default" href="/VideoGames">Here</a></p>
+    </div>
+}
 
 
 
@@ -95,33 +113,4 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-   
 </div>

@@ -38,3 +38,26 @@ a {
     list-style-type: square;
     font-size: 1.2em;
 }
+.contactinfo{
+    line-height: 2em;
+    font-size: 1.3em;
+
+}
+h2{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.5em;
+}
+.body-content {
+   font-size: 1.1em;
+}
+th {
+    font-size: .9em;
+}
+a#postit{
+    margin-left:auto;
+}
+textarea .aboutme{
+    
+    height: 153px;
+    width: 482px;
+}

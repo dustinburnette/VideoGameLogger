@@ -58,11 +58,11 @@ namespace VideoGameLogger
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "630449887951-9oeklv3k98ikvodio5su2qvvj39opbtp.apps.googleusercontent.com",
+                ClientSecret = "HnnBwUN3JZAkTGzvb0yg6kZy"
+            });
         }
     }
 }

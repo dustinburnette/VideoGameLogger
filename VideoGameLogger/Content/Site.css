@@ -61,3 +61,6 @@ textarea .aboutme{
     height: 153px;
     width: 482px;
 }
+#NewCharacterForm{
+    display:none;
+}

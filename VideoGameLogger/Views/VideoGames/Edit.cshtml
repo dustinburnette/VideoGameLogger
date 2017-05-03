@@ -19,7 +19,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.NameOfFightingGame, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.NameOfFightingGame, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NameOfFightingGame, "", new { @class = "text-danger" })
             </div>
@@ -27,7 +27,7 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.WinOrLose, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 <div class="checkbox">
                     @Html.EditorFor(model => model.WinOrLose)
                     @Html.ValidationMessageFor(model => model.WinOrLose, "", new { @class = "text-danger" })
@@ -37,19 +37,35 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.NumberOfRounds, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            <div class="col-md-3">
                 @Html.EditorFor(model => model.NumberOfRounds, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NumberOfRounds, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CharacterID, "CharacterID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CharacterID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CharacterID, "", new { @class = "text-danger" })
-            </div>
+    @Html.LabelFor(model => model.CharacterID, "CharacterID", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-3" id="CharacterDropdown">
+        <div class="input-group">
+            @Html.DropDownList("CharacterID", null, htmlAttributes: new { @class = "form-control" })
+            <span class="input-group-btn">
+                <button class="btn btn-default" id="ShowNewCharacterFormButton" type="button"><icon class="glyphicon glyphicon-plus"></icon></button>
+            </span>
         </div>
+        @Html.ValidationMessageFor(model => model.CharacterID, "", new { @class = "text-danger" })
+
+    </div>
+    <div class="col-md-3" id="NewCharacterForm">
+        <div class="input-group">
+            <input type="text" id="NewCharacterName" class="form-control" placeholder="New Character Name ..." />
+            <span class="input-group-btn">
+                <button class="btn btn-default" id="NewCharacterOkButton" type="button"><icon class="glyphicon glyphicon-ok"></icon></button>
+                <button class="btn btn-default" id="NewCharacterCancelButton" type="button"><icon class="glyphicon glyphicon-remove"></icon></button>
+            </span>
+        </div>
+
+    </div>
+</div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.HowLongMinutes, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -81,4 +97,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="~/Scripts/App/AddCharacterNames.js"></script>
 }
